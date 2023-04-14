@@ -25,3 +25,10 @@ operator+ and -
 ```C++
 Vec position{10,10}; // (x,y)
 ```
+
+### Actor
+```C++
+void change_direction(Vec);
+void move_to(Vec)
+Vec get_position();
+```
