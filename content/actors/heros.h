@@ -1,8 +1,10 @@
 #pragma once
 
+#include "closedoor.h"
 #include "herotype.h"
 #include "move.h"
 #include "none.h"
+#include "rest.h"
 
 namespace Heros {
 
@@ -24,9 +26,11 @@ const std::unordered_map<std::string, Reaction> keybindings = {
     {"D",
      []() {
          return std::make_unique<Move>(Vec{1, 0});
-     }}
+     }},
+    {"R", []() { return std::make_unique<Rest>(); }},
+    {"C", []() { return std::make_unique<CloseDoor>(); }}
 
-};  // namespace Heros
+};
 
 constexpr int default_speed{8};
 const HeroType nobody{"shy-guy", default_speed, 1, std::make_shared<None>(),

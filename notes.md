@@ -32,3 +32,5 @@ void change_direction(Vec);
 void move_to(Vec)
 Vec get_position();
 ```
+
+## Doors
