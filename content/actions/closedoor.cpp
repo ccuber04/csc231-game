@@ -2,6 +2,7 @@
 
 #include "actor.h"
 #include "engine.h"
+#include "updatefov.h"
 
 Result CloseDoor::perform(Engine& engine) {
     Vec position = actor->get_position();
@@ -13,12 +14,12 @@ Result CloseDoor::perform(Engine& engine) {
         if (tile.is_door()) {
             Door& door = engine.dungeon.doors.at(neighbor);
             door.close();
-            tile.walkable = false;
             closed_any_doors = true;
         }
     }
 
     if (closed_any_doors) {
+        engine.events.add(UpdateFOV());
         return success();
     } else {
         return failure();
