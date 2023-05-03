@@ -1,12 +1,15 @@
 #include "monsters.h"
 
+#include "cleaver.h"
 #include "engine.h"
 #include "hero.h"
+#include "knife.h"
 #include "monster.h"
 #include "move.h"
 #include "none.h"
 #include "randomness.h"
 #include "rest.h"
+#include "spear.h"
 #include "wander.h"
 
 namespace Monsters {
@@ -33,19 +36,19 @@ constexpr int tiny_speed{16};
 
 MonsterType goblin() {
     int health = 2;
-    return {"goblin", default_speed, health, std::make_shared<None>(),
+    return {"goblin", default_speed, health, std::make_shared<Knife>(1),
             default_behavior};
 }
 
 MonsterType skeleton() {
     int health = 2;
-    return {"skeleton", default_speed, health, std::make_shared<None>(),
+    return {"skeleton", default_speed, health, std::make_shared<Cleaver>(4),
             default_behavior};
 }
 
 MonsterType demon_tiny() {
     int health = 1;
-    return {"demon_tiny", tiny_speed, health, std::make_shared<None>(),
+    return {"demon_tiny", tiny_speed, health, std::make_shared<Spear>(4),
             default_behavior};
 }
 }  // namespace Monsters
