@@ -1,5 +1,7 @@
 #include "die.h"
 
+#include <iostream>
+
 #include "engine.h"
 
 Die::Die(Actor& actor) : actor{actor} {}

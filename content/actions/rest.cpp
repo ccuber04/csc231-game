@@ -2,7 +2,9 @@
 
 #include <iostream>
 
+#include "actor.h"
+
 Result Rest::perform(Engine&) {
-    std::cout << "rest\n";
+    actor->health += 1;
     return success();
 }

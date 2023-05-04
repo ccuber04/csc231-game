@@ -36,19 +36,19 @@ constexpr int tiny_speed{16};
 
 MonsterType goblin() {
     int health = 2;
-    return {"goblin", default_speed, health, std::make_shared<Knife>(1),
+    return {"goblin", default_speed, health, std::make_shared<Cleaver>(1),
             default_behavior};
 }
 
 MonsterType skeleton() {
     int health = 2;
-    return {"skeleton", default_speed, health, std::make_shared<Cleaver>(4),
+    return {"skeleton", default_speed, health, std::make_shared<Cleaver>(1),
             default_behavior};
 }
 
 MonsterType demon_tiny() {
     int health = 1;
-    return {"demon_tiny", tiny_speed, health, std::make_shared<Spear>(4),
+    return {"demon_tiny", tiny_speed, health, std::make_shared<Cleaver>(1),
             default_behavior};
 }
 }  // namespace Monsters

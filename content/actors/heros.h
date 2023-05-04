@@ -1,11 +1,13 @@
 #pragma once
 
+#include "cleaver.h"
 #include "closedoor.h"
 #include "herotype.h"
 #include "knife.h"
 #include "move.h"
 #include "none.h"
 #include "rest.h"
+#include "spear.h"
 
 namespace Heros {
 
@@ -34,7 +36,7 @@ const std::unordered_map<std::string, Reaction> keybindings = {
 };
 
 constexpr int default_speed{8};
-const HeroType shy_guy{"shy-guy", default_speed, 1, std::make_shared<Knife>(2),
+const HeroType shy_guy{"shy-guy", default_speed, 20, std::make_shared<Knife>(1),
                        keybindings};
 
 }  // namespace Heros

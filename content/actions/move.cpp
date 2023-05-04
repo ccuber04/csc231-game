@@ -18,12 +18,16 @@ Result Move::perform(Engine& engine) {
     actor->change_direction(direction);
 
     if (tile.is_wall()) {
-        // return failure();
-        return alternative(Rest{});
+        return failure();
+        // return alternative(Rest{});
     }
 
     if (tile.actor) {
-        return alternative(Attack(*tile.actor));
+        if (tile.actor->team != actor->team) {
+            return alternative(Attack(*tile.actor));
+        } else {
+            return alternative(Rest{});
+        }
     }
 
     if (tile.is_door()) {

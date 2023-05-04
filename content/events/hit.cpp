@@ -1,5 +1,7 @@
 #include "hit.h"
 
+#include <iostream>
+
 #include "die.h"
 
 Hit::Hit(Actor& actor, int damage) : actor{actor}, damage{damage} {}
