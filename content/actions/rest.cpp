@@ -5,6 +5,8 @@
 #include "actor.h"
 
 Result Rest::perform(Engine&) {
-    actor->health += 1;
+    if (actor->health < actor->max_health) {
+        actor->health += 1;
+    }
     return success();
 }
