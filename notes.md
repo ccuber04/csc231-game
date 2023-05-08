@@ -33,4 +33,6 @@ void move_to(Vec)
 Vec get_position();
 ```
 
-## Doors
+## Sprite Direction
+Compass coordinates (North=0 degrees is 90 degrees on unit circle)
+atan2(x,y) to get the direction in unit circle where the sprite is facing
