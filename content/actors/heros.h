@@ -4,10 +4,12 @@
 #include "closedoor.h"
 #include "herotype.h"
 #include "knife.h"
+#include "mace.h"
 #include "move.h"
 #include "none.h"
 #include "rest.h"
 #include "spear.h"
+#include "staff_red.h"
 
 namespace Heros {
 
@@ -36,8 +38,8 @@ const std::unordered_map<std::string, Reaction> keybindings = {
 };
 
 constexpr int default_speed{8};
-const HeroType shy_guy{"shy-guy", default_speed, 20, std::make_shared<Spear>(2),
-                       keybindings};
+const HeroType shy_guy{"shy-guy", default_speed, 20,
+                       std::make_shared<StaffRed>(2), keybindings};
 const HeroType elf{"elf", default_speed, 10, std::make_shared<None>(),
                    keybindings};
 const HeroType knight{"knight", default_speed, 10, std::make_shared<None>(),
