@@ -4,7 +4,7 @@
 #include "randomness.h"
 
 Result Rest::perform(Engine&) {
-    if (probability(75) && actor->health < actor->max_health) {
+    if (probability(50) && actor->health < actor->max_health) {
         actor->health += 1;
     }
     return success();
