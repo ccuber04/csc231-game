@@ -1,10 +1,11 @@
 #include "sword_big.h"
 
 #include "engine.h"
-#include "hit.h"
+#include "swing.h"
 
 SwordBig::SwordBig(int damage) : Weapon{"sword_big", damage} {}
 
-void SwordBig::use(Engine& engine, Actor&, Actor& defender) {
-    engine.events.add(Hit{defender, damage});
+void SwordBig::use(Engine& engine, Actor& attacker, Actor& defender) {
+    Vec direction = defender.get_position() - attacker.get_position();
+    engine.events.add(Swing{sprite, direction, defender, damage});
 }

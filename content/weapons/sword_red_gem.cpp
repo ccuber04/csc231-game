@@ -1,10 +1,11 @@
 #include "sword_red_gem.h"
 
 #include "engine.h"
-#include "hit.h"
+#include "swing.h"
 
 SwordRedGem::SwordRedGem(int damage) : Weapon{"sword_red_gem", damage} {}
 
-void SwordRedGem::use(Engine& engine, Actor&, Actor& defender) {
-    engine.events.add(Hit{defender, damage});
+void SwordRedGem::use(Engine& engine, Actor& attacker, Actor& defender) {
+    Vec direction = defender.get_position() - attacker.get_position();
+    engine.events.add(Swing{sprite, direction, defender, damage});
 }
