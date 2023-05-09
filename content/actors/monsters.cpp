@@ -71,7 +71,7 @@ MonsterType zombie() {
 }
 
 MonsterType zombie_big() {
-    return {"zombie_big", big_speed, big_health, std::make_shared<None>(),
+    return {"zombie_big", big_speed, big_health, std::make_shared<Spear>(4),
             default_behavior};
 }
 
