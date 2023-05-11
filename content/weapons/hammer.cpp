@@ -3,7 +3,7 @@
 #include "engine.h"
 #include "swing.h"
 
-Hammer::Hammer(int damage) : Weapon{"hammer", damage} {}
+Hammer::Hammer(int damage) : Weapon{"hammer", damage + 3} {}
 
 void Hammer::use(Engine& engine, Actor& attacker, Actor& defender) {
     Vec direction = defender.get_position() - attacker.get_position();

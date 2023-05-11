@@ -3,7 +3,7 @@
 #include "engine.h"
 #include "thrust.h"
 
-Knife::Knife(int damage) : Weapon{"knife", damage} {}
+Knife::Knife(int damage) : Weapon{"knife", damage + 1} {}
 
 void Knife::use(Engine& engine, Actor& attacker, Actor& defender) {
     Vec direction = defender.get_position() - attacker.get_position();

@@ -4,7 +4,7 @@
 #include "engine.h"
 #include "lightning.h"
 
-StaffRed::StaffRed(int damage) : Weapon{"staff_red", damage} {}
+StaffRed::StaffRed(int damage) : Weapon{"staff_red", damage + 1} {}
 
 void StaffRed::use(Engine& engine, Actor& attacker, Actor& defender) {
     Vec direction = defender.get_position() - attacker.get_position();

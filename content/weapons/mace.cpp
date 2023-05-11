@@ -3,7 +3,7 @@
 #include "engine.h"
 #include "swing.h"
 
-Mace::Mace(int damage) : Weapon{"mace", damage} {}
+Mace::Mace(int damage) : Weapon{"mace", damage + 3} {}
 
 void Mace::use(Engine& engine, Actor& attacker, Actor& defender) {
     Vec direction = defender.get_position() - attacker.get_position();

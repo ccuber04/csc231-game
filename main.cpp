@@ -7,31 +7,33 @@ int main() {
     Settings settings = read_settings(filename);
     Engine engine{settings};
 
-    // tiny speed and health
-    engine.create_monster(Monsters::demon_tiny());
-    engine.create_monster(Monsters::zombie_small());
+    for (int i{0}; i < 2; ++i) {
+        // tiny speed and health
+        engine.create_monster(Monsters::demon_tiny());
+        engine.create_monster(Monsters::zombie_small());
 
-    // tiny speed, default health
-    engine.create_monster(Monsters::orc_shaman());
+        // tiny speed, default health
+        engine.create_monster(Monsters::orc_shaman());
 
-    // tiny speed, big health
-    engine.create_monster(Monsters::shy_guy());
+        // tiny speed, big health
+        engine.create_monster(Monsters::shy_guy());
 
-    // default speed and health
-    engine.create_monster(Monsters::muddy());
-    engine.create_monster(Monsters::goblin());
-    engine.create_monster(Monsters::skeleton());
-    engine.create_monster(Monsters::zombie());
-    engine.create_monster(Monsters::orc());
-    engine.create_monster(Monsters::ogre());
-    engine.create_monster(Monsters::demon());
+        // default speed and health
+        engine.create_monster(Monsters::muddy());
+        engine.create_monster(Monsters::goblin());
+        engine.create_monster(Monsters::skeleton());
+        engine.create_monster(Monsters::zombie());
+        engine.create_monster(Monsters::orc());
+        engine.create_monster(Monsters::ogre());
+        engine.create_monster(Monsters::demon());
 
-    // default speed, big health
-    engine.create_monster(Monsters::orc_masked());
+        // default speed, big health
+        engine.create_monster(Monsters::orc_masked());
 
-    // big speed and health
-    engine.create_monster(Monsters::zombie_big());
-    engine.create_monster(Monsters::demon_big());
+        // big speed and health
+        engine.create_monster(Monsters::zombie_big());
+        engine.create_monster(Monsters::demon_big());
+    }
 
     // create hero
     engine.create_hero(Heros::shy_guy);
