@@ -41,23 +41,27 @@ constexpr int default_speed{8};
 constexpr int tiny_speed{16};
 constexpr int big_speed{4};
 
-constexpr int tiny_health{2};
-constexpr int default_health{3};
-constexpr int big_health{5};
+constexpr int tiny_health{4};
+constexpr int default_health{5};
+constexpr int big_health{8};
+
+constexpr int tiny_damage{1};
+constexpr int default_damage{2};
+constexpr int big_damage{5};
 
 MonsterType goblin() {
-    return {"goblin", default_speed, default_health, std::make_shared<Knife>(1),
-            default_behavior};
+    return {"goblin", default_speed, default_health,
+            std::make_shared<Knife>(default_damage), default_behavior};
 }
 
 MonsterType skeleton() {
     return {"skeleton", default_speed, default_health,
-            std::make_shared<Sword>(2), default_behavior};
+            std::make_shared<Sword>(default_damage), default_behavior};
 }
 
 MonsterType demon_tiny() {
-    return {"demon_tiny", tiny_speed, tiny_health, std::make_shared<Mace>(2),
-            default_behavior};
+    return {"demon_tiny", tiny_speed, tiny_health,
+            std::make_shared<Mace>(tiny_damage), default_behavior};
 }
 
 MonsterType zombie_small() {
@@ -71,8 +75,8 @@ MonsterType zombie() {
 }
 
 MonsterType zombie_big() {
-    return {"zombie_big", big_speed, big_health, std::make_shared<Spear>(4),
-            default_behavior};
+    return {"zombie_big", big_speed, big_health,
+            std::make_shared<Spear>(big_damage), default_behavior};
 }
 
 MonsterType muddy() {
@@ -81,28 +85,28 @@ MonsterType muddy() {
 }
 
 MonsterType orc() {
-    return {"orc", default_speed, default_health, std::make_shared<Cleaver>(2),
-            default_behavior};
+    return {"orc", default_speed, default_health,
+            std::make_shared<Cleaver>(default_damage), default_behavior};
 }
 
 MonsterType orc_masked() {
-    return {"orc_masked", default_speed, big_health, std::make_shared<Axe>(2),
-            default_behavior};
+    return {"orc_masked", default_speed, big_health,
+            std::make_shared<Axe>(default_damage), default_behavior};
 }
 
 MonsterType orc_shaman() {
     return {"orc_shaman", tiny_speed, default_health,
-            std::make_shared<StaffRed>(1), default_behavior};
+            std::make_shared<StaffRed>(big_damage), default_behavior};
 }
 
 MonsterType ogre() {
-    return {"ogre", big_speed, big_health, std::make_shared<Hammer>(4),
+    return {"ogre", big_speed, big_health, std::make_shared<Hammer>(big_damage),
             default_behavior};
 }
 
 MonsterType shy_guy() {
     return {"necromancer", tiny_speed, big_health,
-            std::make_shared<SwordRedGem>(3), default_behavior};
+            std::make_shared<SwordRedGem>(big_damage), default_behavior};
 }
 
 MonsterType demon() {
