@@ -3,6 +3,8 @@
 #include "actor.h"
 #include "events.h"
 
+class Drop;
+
 class Die : public Event {
 public:
     Die(Actor& actor);
