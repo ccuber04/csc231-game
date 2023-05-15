@@ -5,9 +5,11 @@
 #include "sprite.h"
 #include "vec.h"
 
+
 // forward declarations
 class Engine;
 class Action;
+class Weapon;
 
 // base class for all interacting beings
 class Actor {
@@ -26,8 +28,9 @@ public:
     virtual void update() = 0;
     virtual std::unique_ptr<Action> take_turn() = 0;
     virtual std::vector<Sprite> get_sprites() const = 0;
-    // pure virtual = return shared_ptr
 
+    std::shared_ptr<Weapon> weapon;
+    
 protected:
     Engine& engine;
     Vec position, direction;

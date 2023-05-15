@@ -9,7 +9,7 @@
 
 class Monster : public Actor {
 public:
-    Monster(Engine& engine, const MonsterType& type, const Vec& position);
+    Monster(Engine& engine, MonsterType type, const Vec& position);
     virtual ~Monster() {}
 
     // orient monster towards direction

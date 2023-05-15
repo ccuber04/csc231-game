@@ -35,6 +35,15 @@ int main() {
         engine.create_monster(Monsters::demon_big());
     }
 
+    // set tiles weapons to none
+    for (int y{0}; y < engine.dungeon.tiles.height; ++y) {
+        for (int x{0}; x < engine.dungeon.tiles.width; ++x) {
+            Tile& tile = engine.dungeon.tiles(Vec{x, y});
+            if (tile.walkable) {
+                tile.weapon = std::make_shared<None>();
+            }
+        }
+    }
     // create hero
     engine.create_hero(Heros::shy_guy);
     engine.run();

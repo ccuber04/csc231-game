@@ -1,6 +1,7 @@
 #include "tile.h"
 
-Tile::Tile() : type{Type::None}, walkable{false}, actor{nullptr} {}
+Tile::Tile()
+    : type{Type::None}, walkable{false}, actor{nullptr}, weapon{nullptr} {}
 
 bool Tile::is_wall() const {
     return type == Type::Wall;

@@ -2,6 +2,8 @@
 
 #include "axe.h"
 #include "cleaver.h"
+#include "die.h"
+#include "drop.h"
 #include "engine.h"
 #include "hammer.h"
 #include "hero.h"
@@ -29,6 +31,22 @@ std::unique_ptr<Action> default_behavior(Engine& engine, Monster& me) {
             return std::make_unique<Move>(direction);
         }
     }
+
+    // monster drops weapon
+    if (me.health == 1) {
+        engine.events.add(Die{me});
+        return std::make_unique<Drop>();
+    }
+
+    // pick up weapon if they have none
+    // if (me.is_visible() && engine.hero) {
+    //     std::vector<Vec> path = engine.dungeon.calculate_path(
+    //         me.get_position(), engine.hero->get_position());
+    //     if (path.size() > 1) {
+    //         Vec direction = path.at(1) - path.at(0);
+    //         return std::make_unique<Move>(direction);
+    //     }
+    // }
 
     // if monster cannot see hero
     if (probability(66)) {
