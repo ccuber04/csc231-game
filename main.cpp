@@ -42,6 +42,7 @@ int main() {
             tile.weapon = std::make_shared<None>();
         }
     }
+
     // create hero
     engine.create_hero(Heros::shy_guy);
     engine.run();

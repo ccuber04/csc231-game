@@ -35,10 +35,14 @@ void Camera::render(const Dungeon& dungeon) const {
             if (within_view(position)) {
                 const Tile& tile = dungeon.tiles(position);
                 render(position, tile.sprite);
-                // if (tile.weapon) {
-                //     render(position, tile.weapon->sprite);
-                // }
             }
+        }
+    }
+
+    // draw doodads
+    for (auto& [position, doodad] : dungeon.doodads) {
+        if (within_view(position)) {
+            render(position, doodad.get_sprite());
         }
     }
 
@@ -50,13 +54,6 @@ void Camera::render(const Dungeon& dungeon) const {
                 const Tile& tile = dungeon.tiles(position);
                 render(position, tile.weapon->sprite);
             }
-        }
-    }
-
-    // draw doodads
-    for (auto& [position, doodad] : dungeon.doodads) {
-        if (within_view(position)) {
-            render(position, doodad.get_sprite());
         }
     }
 

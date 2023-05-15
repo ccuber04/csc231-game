@@ -3,8 +3,9 @@
 #include "axe.h"
 #include "cleaver.h"
 #include "die.h"
-#include "drop.h"
+#include "dropact.h"
 #include "engine.h"
+#include "exchange.h"
 #include "hammer.h"
 #include "hero.h"
 #include "knife.h"
@@ -15,9 +16,13 @@
 #include "randomness.h"
 #include "rest.h"
 #include "spear.h"
+#include "spiked_club.h"
+#include "staff_green.h"
 #include "staff_red.h"
 #include "sword.h"
+#include "sword_big.h"
 #include "sword_red_gem.h"
+#include "sword_rusty.h"
 #include "wander.h"
 
 namespace Monsters {
@@ -32,19 +37,18 @@ std::unique_ptr<Action> default_behavior(Engine& engine, Monster& me) {
         }
     }
 
-    // monster drops weapon
-    if (me.health == 1) {
-        engine.events.add(Die{me});
-        return std::make_unique<Drop>();
-    }
-
     // pick up weapon if they have none
-    // if (me.is_visible() && engine.hero) {
+    // Tile& tile = engine.dungeon.tiles();
+    // if (me.is_visible() && tile.weapon) {  // tile.weapon, need a tile so
+    // position
     //     std::vector<Vec> path = engine.dungeon.calculate_path(
-    //         me.get_position(), engine.hero->get_position());
+    //         me.get_position(), tile.weapon->get_positon());
     //     if (path.size() > 1) {
     //         Vec direction = path.at(1) - path.at(0);
     //         return std::make_unique<Move>(direction);
+    //     }
+    //     if (me.get_position() == tile.weapon->get_position()) {
+    //         return std::make_unique<Exchange>();
     //     }
     // }
 
@@ -84,22 +88,22 @@ MonsterType demon_tiny() {
 
 MonsterType zombie_small() {
     return {"zombie_small", default_speed, tiny_health,
-            std::make_shared<None>(), default_behavior};
+            std::make_shared<Knife>(tiny_damage), default_behavior};
 }
 
 MonsterType zombie() {
-    return {"zombie", default_speed, default_health, std::make_shared<None>(),
-            default_behavior};
+    return {"zombie", default_speed, default_health,
+            std::make_shared<SwordRusty>(default_damage), default_behavior};
 }
 
 MonsterType zombie_big() {
     return {"zombie_big", big_speed, big_health,
-            std::make_shared<Spear>(big_damage), default_behavior};
+            std::make_shared<Hammer>(big_damage), default_behavior};
 }
 
 MonsterType muddy() {
-    return {"muddy", default_speed, default_health, std::make_shared<None>(),
-            default_behavior};
+    return {"muddy", default_speed, default_health,
+            std::make_shared<StaffGreen>(default_damage), default_behavior};
 }
 
 MonsterType orc() {
@@ -118,8 +122,8 @@ MonsterType orc_shaman() {
 }
 
 MonsterType ogre() {
-    return {"ogre", big_speed, big_health, std::make_shared<Hammer>(big_damage),
-            default_behavior};
+    return {"ogre", big_speed, big_health,
+            std::make_shared<SwordBig>(big_damage), default_behavior};
 }
 
 MonsterType shy_guy() {
@@ -128,13 +132,13 @@ MonsterType shy_guy() {
 }
 
 MonsterType demon() {
-    return {"demon", default_speed, default_health, std::make_shared<None>(),
-            default_behavior};
+    return {"demon", default_speed, default_health,
+            std::make_shared<SpikedClub>(default_damage), default_behavior};
 }
 
 MonsterType demon_big() {
-    return {"demon_big", big_speed, big_health, std::make_shared<None>(),
-            default_behavior};
+    return {"demon_big", big_speed, big_health,
+            std::make_shared<Spear>(big_damage), default_behavior};
 }
 
 }  // namespace Monsters

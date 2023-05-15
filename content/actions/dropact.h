@@ -3,7 +3,7 @@
 #include "action.h"
 #include "vec.h"
 
-class PickUp : public Action {
+class DropAct : public Action {
 public:
     Result perform(Engine& engine) override;
 };

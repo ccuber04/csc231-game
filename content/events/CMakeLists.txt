@@ -6,6 +6,7 @@ add_library(events
   swing.cpp
   circle.cpp
   lightning.cpp
+  dropevt.cpp
   )
 
 target_include_directories(events PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

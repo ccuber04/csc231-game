@@ -2,14 +2,14 @@
 
 #include "cleaver.h"
 #include "closedoor.h"
-#include "drop.h"
+#include "dropact.h"
+#include "exchange.h"
 #include "hammer_big.h"
 #include "herotype.h"
 #include "knife.h"
 #include "mace.h"
 #include "move.h"
 #include "none.h"
-#include "pickup.h"
 #include "rest.h"
 #include "spear.h"
 #include "staff_red.h"
@@ -38,14 +38,14 @@ const std::unordered_map<std::string, Reaction> keybindings = {
      }},
     {"R", []() { return std::make_unique<Rest>(); }},
     {"C", []() { return std::make_unique<CloseDoor>(); }},
-    {"Q", []() { return std::make_unique<Drop>(); }},
-    {"Space", []() { return std::make_unique<PickUp>(); }}
+    {"Q", []() { return std::make_unique<DropAct>(); }},
+    {"Space", []() { return std::make_unique<Exchange>(); }}
 
 };
 
 constexpr int default_speed{8};
-const HeroType shy_guy{"shy-guy", default_speed, 20,
-                       std::make_shared<HammerBig>(2), keybindings};
+const HeroType shy_guy{"shy-guy", default_speed, 20, std::make_shared<Knife>(2),
+                       keybindings};
 const HeroType elf{"elf", default_speed, 10, std::make_shared<None>(),
                    keybindings};
 const HeroType knight{"knight", default_speed, 10, std::make_shared<None>(),
